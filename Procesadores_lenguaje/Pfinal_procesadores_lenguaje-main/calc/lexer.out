@@ -1,0 +1,152 @@
+ANALIZADOR LEXICO
+-----------------
+
+--------------------------------
+----- Programa de ejemplo ------
+--------------------------------
+
+
+%%—Definición de funciones
+%%---------------------------------------------
+%%---------------------------------------------
+%%
+FUNCION cuadrado( REAL a ): REAL { DEVOLVER a * a }
+
+%%% Sobrecarga de funciones
+FUNCION cuadrado( ENTERO e ): ENTERO { DEVOLVER e * e}
+
+ENTERO en2 = 6 % con asignación de valor 
+
+%%% Expresiones 
+5 + 6 % operacion 
+real re1 = 3.7 % asignación simple 
+re1 = 3.7 + cuadrado(re1) % usando llamada a función 
+
+%%% Sentencia condicional de control de flujo 
+SI en2==3 OR bo3 AND re1 % condición
+ENTONCES % cuerpo cuando la condición es verdadera
+ en2 = en2+3 
+SINO % cuerpo cuando la condición es falsa, llamada recursiva
+ re1 = cuadrado( cuadrado (en2) ) 
+FINSI % fin de la sentencia
+
+				 TOKENS DE ENTRADA
+				-------------------
+
+1	 Tipo: SALTO_LINEA		 Valor: 
+
+2	 Tipo: SALTO_LINEA		 Valor: 
+
+3	 Tipo: SALTO_LINEA		 Valor: 
+
+4	 Tipo: SALTO_LINEA		 Valor: 
+
+5	 Tipo: FUNCION   		 Valor: funcion
+6	 Tipo: NAME   			 Valor: cuadrado
+7	 Tipo: (    			 Valor: (
+8	 Tipo: REAL   			 Valor: real
+9	 Tipo: NAME   			 Valor: a
+10	 Tipo: )    			 Valor: )
+11	 Tipo: :    			 Valor: :
+12	 Tipo: REAL   			 Valor: real
+13	 Tipo: {    			 Valor: {
+14	 Tipo: DEVOLVER   		 Valor: devolver
+15	 Tipo: NAME   			 Valor: a
+16	 Tipo: *    			 Valor: *
+17	 Tipo: NAME   			 Valor: a
+18	 Tipo: }    			 Valor: }
+19	 Tipo: SALTO_LINEA		 Valor: 
+
+20	 Tipo: SALTO_LINEA		 Valor: 
+
+21	 Tipo: SALTO_LINEA		 Valor: 
+
+22	 Tipo: FUNCION   		 Valor: funcion
+23	 Tipo: NAME   			 Valor: cuadrado
+24	 Tipo: (    			 Valor: (
+25	 Tipo: ENTERO   		 Valor: entero
+26	 Tipo: NAME   			 Valor: e
+27	 Tipo: )    			 Valor: )
+28	 Tipo: :    			 Valor: :
+29	 Tipo: ENTERO   		 Valor: entero
+30	 Tipo: {    			 Valor: {
+31	 Tipo: DEVOLVER   		 Valor: devolver
+32	 Tipo: NAME   			 Valor: e
+33	 Tipo: *    			 Valor: *
+34	 Tipo: NAME   			 Valor: e
+35	 Tipo: }    			 Valor: }
+36	 Tipo: SALTO_LINEA		 Valor: 
+
+37	 Tipo: SALTO_LINEA		 Valor: 
+
+38	 Tipo: ENTERO   		 Valor: entero
+39	 Tipo: NAME   			 Valor: en2
+40	 Tipo: Igualdad   		 Valor: =
+41	 Tipo: NUMBER   		 Valor: 6
+42	 Tipo: SALTO_LINEA		 Valor: 
+
+43	 Tipo: SALTO_LINEA		 Valor: 
+
+44	 Tipo: SALTO_LINEA		 Valor: 
+
+45	 Tipo: NUMBER   		 Valor: 5
+46	 Tipo: +    			 Valor: +
+47	 Tipo: NUMBER   		 Valor: 6
+48	 Tipo: SALTO_LINEA		 Valor: 
+
+49	 Tipo: REAL   			 Valor: real
+50	 Tipo: NAME   			 Valor: re1
+51	 Tipo: Igualdad   		 Valor: =
+52	 Tipo: NUMBER   		 Valor: 3.7
+53	 Tipo: SALTO_LINEA		 Valor: 
+
+54	 Tipo: NAME   			 Valor: re1
+55	 Tipo: Igualdad   		 Valor: =
+56	 Tipo: NUMBER   		 Valor: 3.7
+57	 Tipo: +    			 Valor: +
+58	 Tipo: NAME   			 Valor: cuadrado
+59	 Tipo: (    			 Valor: (
+60	 Tipo: NAME   			 Valor: re1
+61	 Tipo: )    			 Valor: )
+62	 Tipo: SALTO_LINEA		 Valor: 
+
+63	 Tipo: SALTO_LINEA		 Valor: 
+
+64	 Tipo: SALTO_LINEA		 Valor: 
+
+65	 Tipo: SI    			 Valor: si
+66	 Tipo: NAME   			 Valor: en2
+67	 Tipo: IgualIgual		 Valor: ==
+68	 Tipo: NUMBER   		 Valor: 3
+69	 Tipo: OR    			 Valor: or
+70	 Tipo: NAME   			 Valor: bo3
+71	 Tipo: AND   			 Valor: and
+72	 Tipo: NAME   			 Valor: re1
+73	 Tipo: SALTO_LINEA		 Valor: 
+
+74	 Tipo: ENTONCES   		 Valor: entonces
+75	 Tipo: SALTO_LINEA		 Valor: 
+
+76	 Tipo: NAME   			 Valor: en2
+77	 Tipo: Igualdad   		 Valor: =
+78	 Tipo: NAME   			 Valor: en2
+79	 Tipo: +    			 Valor: +
+80	 Tipo: NUMBER   		 Valor: 3
+81	 Tipo: SALTO_LINEA		 Valor: 
+
+82	 Tipo: SENO   			 Valor: SIN
+83	 Tipo: NAME   			 Valor: O
+84	 Tipo: SALTO_LINEA		 Valor: 
+
+85	 Tipo: NAME   			 Valor: re1
+86	 Tipo: Igualdad   		 Valor: =
+87	 Tipo: NAME   			 Valor: cuadrado
+88	 Tipo: (    			 Valor: (
+89	 Tipo: NAME   			 Valor: cuadrado
+90	 Tipo: (    			 Valor: (
+91	 Tipo: NAME   			 Valor: en2
+92	 Tipo: )    			 Valor: )
+93	 Tipo: )    			 Valor: )
+94	 Tipo: SALTO_LINEA		 Valor: 
+
+95	 Tipo: FINSI   			 Valor: finsi

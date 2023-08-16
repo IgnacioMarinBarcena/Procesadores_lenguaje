@@ -1,0 +1,33 @@
+% Declaraciones simples
+REAL re
+ENTero int2
+CARACTER a_
+booleano bo1_,bo2_
+
+% Declaraciones compuestas
+real re2, re3
+
+% Comprobación errores
+entero int2         % ERROR: Debe saltar el error "Variable ya se ha declarado"
+real int2           % ERROR: Debe saltar el error "Variable ya se ha declarado"
+casa re5            % ERROR: Tipo de variable no valido
+entero int3, int2   % ERROR: Debe saltar el error "Variable ya se ha declarado" para "int2", "int3" debe ser aceptada
+
+% Asignaciones enteras
+caracter h_ = 'A'
+enteRo re4 = 7
+BOOLEANO bo3_ = CIERTO
+bo2_ = FALSO
+bo1_ = cierto
+
+% Asignaciones enteras error
+real re5 = 'a'  % ERROR: El valor de la variable no coincide con su tipo
+
+% Asignaciones de valor a variable ya creadas 
+re = 5.0 + 6.0
+
+% Operaciones booleanos
+bo2_ + bo1_     % ERROR: No se pueden realizar operaciones aritméticas con booleanos
+bo2_ - bo1_     % ERROR: No se pueden realizar operaciones aritméticas con booleanos
+bo2_ * bo3_     % ERROR: No se pueden realizar operaciones aritméticas con booleanos
+bo3_ / bo1_     % ERROR: No se pueden realizar operaciones aritméticas con booleanos

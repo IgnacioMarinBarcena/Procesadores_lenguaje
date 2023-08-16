@@ -1,0 +1,928 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    NAME
+
+Grammar
+
+Rule 0     S' -> statements
+Rule 1     statements -> statement SALTO_LINEA statements
+Rule 2     statements -> statement
+Rule 3     statement -> <empty>
+Rule 4     statement -> MEMORIA = expression
+Rule 5     statement -> expression
+Rule 6     expression -> multiplicador
+Rule 7     multiplicador -> operando
+Rule 8     operando -> NUMBER
+Rule 9     operando -> INFINITO
+Rule 10    operando -> UNKNOWN
+Rule 11    operando -> ( expression )
+Rule 12    operando -> + operando
+Rule 13    operando -> - operando
+Rule 14    expression -> expression + multiplicador
+Rule 15    expression -> expression - multiplicador
+Rule 16    multiplicador -> multiplicador * operando
+Rule 17    multiplicador -> multiplicador / operando
+Rule 18    operando -> EXPONENCIAL ( expression )
+Rule 19    operando -> LOGARITMICA ( expression )
+Rule 20    operando -> SENO ( expression )
+Rule 21    operando -> COSENO ( expression )
+Rule 22    operando -> MEMORIA
+
+Terminals, with rules where they appear
+
+(                    : 11 18 19 20 21
+)                    : 11 18 19 20 21
+*                    : 16
++                    : 12 14
+-                    : 13 15
+/                    : 17
+=                    : 4
+COSENO               : 21
+EXPONENCIAL          : 18
+INFINITO             : 9
+LOGARITMICA          : 19
+MEMORIA              : 4 22
+NAME                 : 
+NUMBER               : 8
+SALTO_LINEA          : 1
+SENO                 : 20
+UNKNOWN              : 10
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 4 5 11 14 15 18 19 20 21
+multiplicador        : 6 14 15 16 17
+operando             : 7 12 13 16 17
+statement            : 1 2
+statements           : 1 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statements
+    (1) statements -> . statement SALTO_LINEA statements
+    (2) statements -> . statement
+    (3) statement -> .
+    (4) statement -> . MEMORIA = expression
+    (5) statement -> . expression
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    SALTO_LINEA     reduce using rule 3 (statement -> .)
+    $end            reduce using rule 3 (statement -> .)
+    MEMORIA         shift and go to state 3
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+
+    statements                     shift and go to state 1
+    statement                      shift and go to state 2
+    expression                     shift and go to state 4
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 1
+
+    (0) S' -> statements .
+
+
+
+state 2
+
+    (1) statements -> statement . SALTO_LINEA statements
+    (2) statements -> statement .
+
+    SALTO_LINEA     shift and go to state 17
+    $end            reduce using rule 2 (statements -> statement .)
+
+
+state 3
+
+    (4) statement -> MEMORIA . = expression
+    (22) operando -> MEMORIA .
+
+    =               shift and go to state 18
+    *               reduce using rule 22 (operando -> MEMORIA .)
+    /               reduce using rule 22 (operando -> MEMORIA .)
+    +               reduce using rule 22 (operando -> MEMORIA .)
+    -               reduce using rule 22 (operando -> MEMORIA .)
+    SALTO_LINEA     reduce using rule 22 (operando -> MEMORIA .)
+    $end            reduce using rule 22 (operando -> MEMORIA .)
+
+
+state 4
+
+    (5) statement -> expression .
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    SALTO_LINEA     reduce using rule 5 (statement -> expression .)
+    $end            reduce using rule 5 (statement -> expression .)
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 5
+
+    (6) expression -> multiplicador .
+    (16) multiplicador -> multiplicador . * operando
+    (17) multiplicador -> multiplicador . / operando
+
+    +               reduce using rule 6 (expression -> multiplicador .)
+    -               reduce using rule 6 (expression -> multiplicador .)
+    SALTO_LINEA     reduce using rule 6 (expression -> multiplicador .)
+    $end            reduce using rule 6 (expression -> multiplicador .)
+    )               reduce using rule 6 (expression -> multiplicador .)
+    *               shift and go to state 21
+    /               shift and go to state 22
+
+
+state 6
+
+    (12) operando -> + . operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    operando                       shift and go to state 23
+
+state 7
+
+    (13) operando -> - . operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    operando                       shift and go to state 25
+
+state 8
+
+    (7) multiplicador -> operando .
+
+    *               reduce using rule 7 (multiplicador -> operando .)
+    /               reduce using rule 7 (multiplicador -> operando .)
+    +               reduce using rule 7 (multiplicador -> operando .)
+    -               reduce using rule 7 (multiplicador -> operando .)
+    SALTO_LINEA     reduce using rule 7 (multiplicador -> operando .)
+    $end            reduce using rule 7 (multiplicador -> operando .)
+    )               reduce using rule 7 (multiplicador -> operando .)
+
+
+state 9
+
+    (8) operando -> NUMBER .
+
+    *               reduce using rule 8 (operando -> NUMBER .)
+    /               reduce using rule 8 (operando -> NUMBER .)
+    +               reduce using rule 8 (operando -> NUMBER .)
+    -               reduce using rule 8 (operando -> NUMBER .)
+    SALTO_LINEA     reduce using rule 8 (operando -> NUMBER .)
+    $end            reduce using rule 8 (operando -> NUMBER .)
+    )               reduce using rule 8 (operando -> NUMBER .)
+
+
+state 10
+
+    (9) operando -> INFINITO .
+
+    *               reduce using rule 9 (operando -> INFINITO .)
+    /               reduce using rule 9 (operando -> INFINITO .)
+    +               reduce using rule 9 (operando -> INFINITO .)
+    -               reduce using rule 9 (operando -> INFINITO .)
+    SALTO_LINEA     reduce using rule 9 (operando -> INFINITO .)
+    $end            reduce using rule 9 (operando -> INFINITO .)
+    )               reduce using rule 9 (operando -> INFINITO .)
+
+
+state 11
+
+    (10) operando -> UNKNOWN .
+
+    *               reduce using rule 10 (operando -> UNKNOWN .)
+    /               reduce using rule 10 (operando -> UNKNOWN .)
+    +               reduce using rule 10 (operando -> UNKNOWN .)
+    -               reduce using rule 10 (operando -> UNKNOWN .)
+    SALTO_LINEA     reduce using rule 10 (operando -> UNKNOWN .)
+    $end            reduce using rule 10 (operando -> UNKNOWN .)
+    )               reduce using rule 10 (operando -> UNKNOWN .)
+
+
+state 12
+
+    (11) operando -> ( . expression )
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    expression                     shift and go to state 26
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 13
+
+    (18) operando -> EXPONENCIAL . ( expression )
+
+    (               shift and go to state 27
+
+
+state 14
+
+    (19) operando -> LOGARITMICA . ( expression )
+
+    (               shift and go to state 28
+
+
+state 15
+
+    (20) operando -> SENO . ( expression )
+
+    (               shift and go to state 29
+
+
+state 16
+
+    (21) operando -> COSENO . ( expression )
+
+    (               shift and go to state 30
+
+
+state 17
+
+    (1) statements -> statement SALTO_LINEA . statements
+    (1) statements -> . statement SALTO_LINEA statements
+    (2) statements -> . statement
+    (3) statement -> .
+    (4) statement -> . MEMORIA = expression
+    (5) statement -> . expression
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    SALTO_LINEA     reduce using rule 3 (statement -> .)
+    $end            reduce using rule 3 (statement -> .)
+    MEMORIA         shift and go to state 3
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+
+    statement                      shift and go to state 2
+    statements                     shift and go to state 31
+    expression                     shift and go to state 4
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 18
+
+    (4) statement -> MEMORIA = . expression
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    expression                     shift and go to state 32
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 19
+
+    (14) expression -> expression + . multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    multiplicador                  shift and go to state 33
+    operando                       shift and go to state 8
+
+state 20
+
+    (15) expression -> expression - . multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    multiplicador                  shift and go to state 34
+    operando                       shift and go to state 8
+
+state 21
+
+    (16) multiplicador -> multiplicador * . operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    operando                       shift and go to state 35
+
+state 22
+
+    (17) multiplicador -> multiplicador / . operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    operando                       shift and go to state 36
+
+state 23
+
+    (12) operando -> + operando .
+
+    *               reduce using rule 12 (operando -> + operando .)
+    /               reduce using rule 12 (operando -> + operando .)
+    +               reduce using rule 12 (operando -> + operando .)
+    -               reduce using rule 12 (operando -> + operando .)
+    SALTO_LINEA     reduce using rule 12 (operando -> + operando .)
+    $end            reduce using rule 12 (operando -> + operando .)
+    )               reduce using rule 12 (operando -> + operando .)
+
+
+state 24
+
+    (22) operando -> MEMORIA .
+
+    *               reduce using rule 22 (operando -> MEMORIA .)
+    /               reduce using rule 22 (operando -> MEMORIA .)
+    +               reduce using rule 22 (operando -> MEMORIA .)
+    -               reduce using rule 22 (operando -> MEMORIA .)
+    SALTO_LINEA     reduce using rule 22 (operando -> MEMORIA .)
+    $end            reduce using rule 22 (operando -> MEMORIA .)
+    )               reduce using rule 22 (operando -> MEMORIA .)
+
+
+state 25
+
+    (13) operando -> - operando .
+
+    *               reduce using rule 13 (operando -> - operando .)
+    /               reduce using rule 13 (operando -> - operando .)
+    +               reduce using rule 13 (operando -> - operando .)
+    -               reduce using rule 13 (operando -> - operando .)
+    SALTO_LINEA     reduce using rule 13 (operando -> - operando .)
+    $end            reduce using rule 13 (operando -> - operando .)
+    )               reduce using rule 13 (operando -> - operando .)
+
+
+state 26
+
+    (11) operando -> ( expression . )
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    )               shift and go to state 37
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 27
+
+    (18) operando -> EXPONENCIAL ( . expression )
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    expression                     shift and go to state 38
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 28
+
+    (19) operando -> LOGARITMICA ( . expression )
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    expression                     shift and go to state 39
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 29
+
+    (20) operando -> SENO ( . expression )
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    expression                     shift and go to state 40
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 30
+
+    (21) operando -> COSENO ( . expression )
+    (6) expression -> . multiplicador
+    (14) expression -> . expression + multiplicador
+    (15) expression -> . expression - multiplicador
+    (7) multiplicador -> . operando
+    (16) multiplicador -> . multiplicador * operando
+    (17) multiplicador -> . multiplicador / operando
+    (8) operando -> . NUMBER
+    (9) operando -> . INFINITO
+    (10) operando -> . UNKNOWN
+    (11) operando -> . ( expression )
+    (12) operando -> . + operando
+    (13) operando -> . - operando
+    (18) operando -> . EXPONENCIAL ( expression )
+    (19) operando -> . LOGARITMICA ( expression )
+    (20) operando -> . SENO ( expression )
+    (21) operando -> . COSENO ( expression )
+    (22) operando -> . MEMORIA
+
+    NUMBER          shift and go to state 9
+    INFINITO        shift and go to state 10
+    UNKNOWN         shift and go to state 11
+    (               shift and go to state 12
+    +               shift and go to state 6
+    -               shift and go to state 7
+    EXPONENCIAL     shift and go to state 13
+    LOGARITMICA     shift and go to state 14
+    SENO            shift and go to state 15
+    COSENO          shift and go to state 16
+    MEMORIA         shift and go to state 24
+
+    expression                     shift and go to state 41
+    multiplicador                  shift and go to state 5
+    operando                       shift and go to state 8
+
+state 31
+
+    (1) statements -> statement SALTO_LINEA statements .
+
+    $end            reduce using rule 1 (statements -> statement SALTO_LINEA statements .)
+
+
+state 32
+
+    (4) statement -> MEMORIA = expression .
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    SALTO_LINEA     reduce using rule 4 (statement -> MEMORIA = expression .)
+    $end            reduce using rule 4 (statement -> MEMORIA = expression .)
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 33
+
+    (14) expression -> expression + multiplicador .
+    (16) multiplicador -> multiplicador . * operando
+    (17) multiplicador -> multiplicador . / operando
+
+    +               reduce using rule 14 (expression -> expression + multiplicador .)
+    -               reduce using rule 14 (expression -> expression + multiplicador .)
+    SALTO_LINEA     reduce using rule 14 (expression -> expression + multiplicador .)
+    $end            reduce using rule 14 (expression -> expression + multiplicador .)
+    )               reduce using rule 14 (expression -> expression + multiplicador .)
+    *               shift and go to state 21
+    /               shift and go to state 22
+
+
+state 34
+
+    (15) expression -> expression - multiplicador .
+    (16) multiplicador -> multiplicador . * operando
+    (17) multiplicador -> multiplicador . / operando
+
+    +               reduce using rule 15 (expression -> expression - multiplicador .)
+    -               reduce using rule 15 (expression -> expression - multiplicador .)
+    SALTO_LINEA     reduce using rule 15 (expression -> expression - multiplicador .)
+    $end            reduce using rule 15 (expression -> expression - multiplicador .)
+    )               reduce using rule 15 (expression -> expression - multiplicador .)
+    *               shift and go to state 21
+    /               shift and go to state 22
+
+
+state 35
+
+    (16) multiplicador -> multiplicador * operando .
+
+    *               reduce using rule 16 (multiplicador -> multiplicador * operando .)
+    /               reduce using rule 16 (multiplicador -> multiplicador * operando .)
+    +               reduce using rule 16 (multiplicador -> multiplicador * operando .)
+    -               reduce using rule 16 (multiplicador -> multiplicador * operando .)
+    SALTO_LINEA     reduce using rule 16 (multiplicador -> multiplicador * operando .)
+    $end            reduce using rule 16 (multiplicador -> multiplicador * operando .)
+    )               reduce using rule 16 (multiplicador -> multiplicador * operando .)
+
+
+state 36
+
+    (17) multiplicador -> multiplicador / operando .
+
+    *               reduce using rule 17 (multiplicador -> multiplicador / operando .)
+    /               reduce using rule 17 (multiplicador -> multiplicador / operando .)
+    +               reduce using rule 17 (multiplicador -> multiplicador / operando .)
+    -               reduce using rule 17 (multiplicador -> multiplicador / operando .)
+    SALTO_LINEA     reduce using rule 17 (multiplicador -> multiplicador / operando .)
+    $end            reduce using rule 17 (multiplicador -> multiplicador / operando .)
+    )               reduce using rule 17 (multiplicador -> multiplicador / operando .)
+
+
+state 37
+
+    (11) operando -> ( expression ) .
+
+    *               reduce using rule 11 (operando -> ( expression ) .)
+    /               reduce using rule 11 (operando -> ( expression ) .)
+    +               reduce using rule 11 (operando -> ( expression ) .)
+    -               reduce using rule 11 (operando -> ( expression ) .)
+    SALTO_LINEA     reduce using rule 11 (operando -> ( expression ) .)
+    $end            reduce using rule 11 (operando -> ( expression ) .)
+    )               reduce using rule 11 (operando -> ( expression ) .)
+
+
+state 38
+
+    (18) operando -> EXPONENCIAL ( expression . )
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    )               shift and go to state 42
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 39
+
+    (19) operando -> LOGARITMICA ( expression . )
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    )               shift and go to state 43
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 40
+
+    (20) operando -> SENO ( expression . )
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    )               shift and go to state 44
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 41
+
+    (21) operando -> COSENO ( expression . )
+    (14) expression -> expression . + multiplicador
+    (15) expression -> expression . - multiplicador
+
+    )               shift and go to state 45
+    +               shift and go to state 19
+    -               shift and go to state 20
+
+
+state 42
+
+    (18) operando -> EXPONENCIAL ( expression ) .
+
+    *               reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+    /               reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+    +               reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+    -               reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+    SALTO_LINEA     reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+    $end            reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+    )               reduce using rule 18 (operando -> EXPONENCIAL ( expression ) .)
+
+
+state 43
+
+    (19) operando -> LOGARITMICA ( expression ) .
+
+    *               reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+    /               reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+    +               reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+    -               reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+    SALTO_LINEA     reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+    $end            reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+    )               reduce using rule 19 (operando -> LOGARITMICA ( expression ) .)
+
+
+state 44
+
+    (20) operando -> SENO ( expression ) .
+
+    *               reduce using rule 20 (operando -> SENO ( expression ) .)
+    /               reduce using rule 20 (operando -> SENO ( expression ) .)
+    +               reduce using rule 20 (operando -> SENO ( expression ) .)
+    -               reduce using rule 20 (operando -> SENO ( expression ) .)
+    SALTO_LINEA     reduce using rule 20 (operando -> SENO ( expression ) .)
+    $end            reduce using rule 20 (operando -> SENO ( expression ) .)
+    )               reduce using rule 20 (operando -> SENO ( expression ) .)
+
+
+state 45
+
+    (21) operando -> COSENO ( expression ) .
+
+    *               reduce using rule 21 (operando -> COSENO ( expression ) .)
+    /               reduce using rule 21 (operando -> COSENO ( expression ) .)
+    +               reduce using rule 21 (operando -> COSENO ( expression ) .)
+    -               reduce using rule 21 (operando -> COSENO ( expression ) .)
+    SALTO_LINEA     reduce using rule 21 (operando -> COSENO ( expression ) .)
+    $end            reduce using rule 21 (operando -> COSENO ( expression ) .)
+    )               reduce using rule 21 (operando -> COSENO ( expression ) .)
+

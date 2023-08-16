@@ -1,0 +1,20 @@
+VECTOR ENTERO vector2D[3]
+
+% Registros
+REGISTRO CIRCULO {entero cx, cy, radio; CARACTER color;}  % definición de tipo compuesto
+CIRCULO circ1 % declaración variable registro no permite asignación al mismo tiempo que la declaracion
+
+% Registro con registro
+REGISTRO GEOMETRIA {REAL cx, cy; Registro CIRCULO; vector vector2D;}
+
+% Errores
+REGISTRO vector2D {entero cx, cy, radio; CARACTER color;}               % ERROR: Declarar un registro con un nombre ya declarado
+REGISTRO regis1 {REAL cx, cy; Registro TRIANGULO; vector vector2d;}     % ERROR: Intentar asignar a un registro un registro no celarado anteriormente
+REGISTRO regis2 {REAL cx, cy; Registro CIRCULO; vector vector3h;}       % ERROR: Intentar asignar a un registro un vector no celarado anteriormente
+
+% Asignaciones registros
+circ1.cx = 'h'                                          % ERROR: El tipo del valor no coincide con el de la variable
+circ1.cx = 1                                            % campo de variable registro
+circ1.cy = vector2D.LONG                                % campo de variable registro
+circ1.radio = 10                                        % campo de variable registro
+circ1.color = 'r'                                       % campo de variable registro

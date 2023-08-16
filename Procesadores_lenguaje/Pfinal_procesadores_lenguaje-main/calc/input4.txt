@@ -1,0 +1,28 @@
+entero re1,re2
+booleano bo_,bo2_
+entero re3,re4,re5
+
+re1 = 7
+re2 = 7
+bo2_ = CIERTO
+
+% Condicionales
+Si re1 == re2 and bo2_ == CIERTO ENTONCES bo_ = CIERTO FINSI
+Si re1 == re2 & bo2_ == CIERTO ENTONCES bo_ = FALSO FINSI
+
+Si re1 == re2 not bo2_ == CIERTO ENTONCES bo_ = CIERTO FINSI
+Si re1 == re2 ! bo2_ == CIERTO ENTONCES bo_ = FALSO FINSI
+
+Si re1 == re2 or bo2_ == CIERTO ENTONCES bo_ = CIERTO FINSI
+Si re1 == re2 | bo2_ == CIERTO ENTONCES bo_ = FALSO FINSI
+
+% Bucles
+MIENTRAS bo2_ == CIERTO re1 = re1 + 1 FINMIENTRAS
+
+% Operaciones de variables
+
+re3 = re5 + re1     % ERROR: No se puede sumar variables de tipo None
+
+re3 = re1 + re2     % Se actualiza el valor de la variable re3 a 15
+re4 = re1 - re2     % Se actualiza el valor de la variable re4 a 1
+re5 = re3 * 2       % Se actualiza el valor de la variable re5 a 30

@@ -1,0 +1,34 @@
+%%-- Operaciones aritméticas y comparación
+%%---------------------------------------------
+%%---------------------------------------------
+%%
+entero re1, re2
+BOOLEANO bo
+CARACTER ca = 'h'      % variable de tipo carácter, y su literal
+re1 = 5 * 3 - 80/10     % esta expresion debe resultar 7
+re2 = 10 / 5 * re1      % esta expresion debe resultar 14
+bo = 5<3                % comparación, debe resultar cierto si un número es positivo --> bo igual al FALSE
+
+% Más declaraciones
+REAL num
+BOOLEANO Espositivo
+SI num >= 0 ENTONCES
+Espositivo = CIERTO
+SINO
+Espositivo = FALSO
+FINSI
+
+%cálculo del máximo
+REAL a,b,c,max
+a =1
+b =2
+c =3
+SI a>=b AND a>=c ENTONCES % a es el máximo
+max =a 
+ SINO % el máximo es b o c 
+ SI b>=a AND b>=c ENTONCES % b es el máximo
+max = b 
+ SINO % c es el máximo, por descarte
+ max =c
+FINSI 
+FINSI

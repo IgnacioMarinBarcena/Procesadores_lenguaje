@@ -1,0 +1,50 @@
+4*5 + (10 + 10) * 2 % esta expresion debe resultar 60
+4+-1*(10 + 10) % esta expresion debe resultar -16
+% Lineas vacias, con y sin espacios en blanco
+
+% Operandos individuales 
+5 
++5 
+-1
+% Con mas de un caracter 
+1341894 
++1341894 
+-1341894
+
+% Operaciones
+5 * +3 - 80/10 % esta expresion debe resultar 7 
+10/5 * 2 % esta expresion debe resultar 4
+- 3 *4 % esta expresion debe resultar -12
+5 * (4-3) / (8 - (4-1)) % esta expresion debe resultar 1
+
+% Operaciones
+5.3+1e-1 % esta expresion debe resultar 5.4 
+5.3+011 % esta expresion debe resultar 14.3 
+5.3+0B11 % esta expresion debe resultar 8.3 
+5.3+0X11 % esta expresion debe resultar 22.3
+5.3e2 % esta expresion debe resultar 530.0
+
+% Funciones científicas básicas
+% Exponenciales
+exp(4) % esta expresion debe resultar en 54,59
+15 + exp(1) % esta expresion debe resultar en 17,718
+2 - exp(1) % esta expresion debe resultar en -0,718
+3 * exp(3) % esta expresion debe resultar en 60,256
+500 / exp(8) % esta expresion debe resultar en 0,16773
+
+% Logaritmicas
+log(46) % esta expresion debe resultar en 1.6627
+log(90) % esta expresion debe resultar en 1.95424
+log(137) % esta expresion debe resultar en 2.1367
+
+% Senos y coseno (en radianes)
+sin(90) % esta expresion debe resultar en 0.8939
+sin(180) % esta expresion debe resultar en -0.8011
+sin(76) % esta expresion debe resultar en 0.5661
+cos(0) % esta expresion debe resultar en 1
+cos(270) % esta expresion debe resultar en 0.98438
+cos(325) % esta expresion debe resultar en -0.1542
+sin(90) + cos(0) % esta expresion debe resultar en 1.8939
+cos(180) - sin(180) % esta expresion debe resultar en 0.20269
+cos(45) * cos (45) % esta expresion debe resultar en 0.27596
+sin(90) / sin(90) % esta expresion debe resultar en 1

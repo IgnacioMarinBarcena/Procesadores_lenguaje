@@ -1,0 +1,10 @@
+entero int
+
+% Funciones
+FUNCION funcion1 (ENTERO x1,ENTERO x2) : ENTERO { t = x1 + x2 DEVOLVER t }
+FUNCION funcion2 () : ENTERO { t2 = x1 + x2 DEVOLVER t2 }
+funcion1(5,7)
+
+% Error
+Prueba(5,7)     % ERROR: La funcion no se encuentra declarada
+FUNCION int() : ENTERO { t = x1 + x2 DEVOLVER t } % ERROR: Se intenta asignar un nombre a la función ya empleado

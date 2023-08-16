@@ -1,0 +1,23 @@
+%%-- Declaracion de variables y tipos REGISTRO
+%%---------------------------------------------
+%%---------------------------------------------
+%%
+REAL re1 
+ENTERO en2 = 6 % con asignación de valor 
+BOOLEANO bo3 = 5<3 % se asigna el resultado de una expresión
+CARACTER ca4 = 'h' % variable de tipo carácter, y su literal
+REGISTRO VECTOR2D {REAL x1, x2;}
+REGISTRO BOLA {VECTOR2D centro; REAL radio;} %definición tipo compuesto
+BOLA punto1 % declaración variable struct no permite asignación al mismo tiempo que la declaracion
+REGISTRO PERSONA {PALABRA nombre, apellido1, apellido2; ENTERO edad;}
+PERSONA alumno
+
+%%% Expresiones 
+5 + 6 % operacion 
+re1 = 3.7 % asignación simple 
+bo3 = en2 < 7 AND 5.46+7*en2 > 4  % asignación compleja
+punto1.radio = 10.0 % campo de variable resgistro
+alumno.nombre = Alberto
+alumno.apellido1 = Garcia
+alumno.apellido2 = Sanz
+alumno.edad = 19
